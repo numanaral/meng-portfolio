@@ -44,8 +44,7 @@ function SectionNavigation() {
           <div
             className="navigation-example"
             style={{
-              backgroundImage:
-                "url(" + require("assets/img/ilya-yakover.jpg") + ")",
+              backgroundImage: `url(${require("assets/img/ilya-yakover.jpg")})`,
             }}
           >
             <Navbar className="bg-primary" expand="lg">
