@@ -1,0 +1,9 @@
+button.image-button {
+  height: 50px;
+  width: auto;
+  padding: 0;
+  overflow: hidden;
+  margin: 0 10px 10px 0;
+  border: none;
+  outline: 0;
+}
