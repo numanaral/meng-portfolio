@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import ImageButton from "./ImageButton";
 
 const Thumbnails = ({ images, onClick, withSections }) => {
@@ -17,10 +17,10 @@ const Thumbnails = ({ images, onClick, withSections }) => {
         );
       });
       return (
-        <>
+        <Fragment key={sectionName}>
           <h3>{sectionName}</h3>
           {img}
-        </>
+        </Fragment>
       );
     });
   }

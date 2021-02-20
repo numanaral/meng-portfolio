@@ -14,7 +14,7 @@ const Wakalet = () => (
     {/* <!-- Please only call https://embed-assets.wakelet.com/wakelet-embed once per page --> */}
     <script
       src="https://embed-assets.wakelet.com/wakelet-embed"
-      charset="UTF-8"
+      charSet="UTF-8"
     />
   </>
 );
