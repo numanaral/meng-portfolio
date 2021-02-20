@@ -2,12 +2,12 @@ import Wakalet from "./Wakalet";
 
 const tabs = [
   {
-    title: "Reporting",
-    content: "Reporting",
-  },
-  {
     title: "Social Media Roundup",
     content: Wakalet,
+  },
+  {
+    title: "Reporting",
+    content: "Reporting",
   },
   {
     title: "Communications",
