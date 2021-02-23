@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable jsx-a11y/anchor-is-valid */
+import React, { useRef } from "react";
 
 import {
   Card,
@@ -9,13 +10,11 @@ import {
   CarouselIndicators,
   CarouselCaption,
 } from "reactstrap";
+import LazyImage from "components/LazyImage";
+import toggleFullScreen from "utils/toggleFullScreen";
 import Thumbnails from "./Thumbnails";
 import useHook from "./useHook";
-
-const capitalize = (s = "") => s[0].toUpperCase() + s.slice(1);
-const fileNameToSentenceCase = (s = "") =>
-  s.split(".")[0].split(/[-\s]/).join(" ");
-const fileNameToSentence = (s) => capitalize(fileNameToSentenceCase(s));
+import "./Gallery.scss";
 
 const Gallery = ({ images = [], withSections = false }) => {
   /** @type {React.RefObject<HTMLDivElement>} */
@@ -27,11 +26,12 @@ const Gallery = ({ images = [], withSections = false }) => {
       {}
     );
     flattenedImages = Object.keys(mergedGroups).map((fileName) => {
-      const prettyFileName = fileNameToSentence(fileName);
+      const { src, lqip, caption } = mergedGroups[fileName];
       return {
-        src: mergedGroups[fileName],
-        altText: prettyFileName,
-        caption: prettyFileName,
+        src,
+        lqip,
+        altText: caption,
+        caption,
       };
     });
   }
@@ -47,7 +47,7 @@ const Gallery = ({ images = [], withSections = false }) => {
 
   return (
     <>
-      <div className="section pt-o p-5" id="carousel">
+      <div className="section py-3 px-5" id="carousel">
         <Row>
           <Col md="5">
             <Thumbnails
@@ -56,8 +56,27 @@ const Gallery = ({ images = [], withSections = false }) => {
               withSections={withSections}
             />
           </Col>
-          <Col md="7">
+          <Col md="7 pt-2">
             <Card className="page-carousel">
+              <span ref={carouselRef} />
+              <a
+                className="right carousel-control full-screen-image-button"
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const pageCarousel = carouselRef.current.parentNode;
+                  const fullScreenButton = e.currentTarget.childNodes[0];
+                  toggleFullScreen(pageCarousel, () => {
+                    pageCarousel.classList.toggle("full-screen-carousel");
+                    fullScreenButton.classList.toggle("fa-arrows-alt");
+                    fullScreenButton.classList.toggle("fa-times");
+                  });
+                }}
+                role="button"
+              >
+                <span className="fa fa-arrows-alt" />
+                <span className="sr-only">Full Screen</span>
+              </a>
               <Carousel
                 activeIndex={activeIndex}
                 next={next}
@@ -75,10 +94,17 @@ const Gallery = ({ images = [], withSections = false }) => {
                       onExited={onExited}
                       key={image.src}
                     >
-                      <img src={image.src} alt={image.altText} />
+                      <LazyImage
+                        placeholderSrc={image.lqip}
+                        wrapperClassName="carousel-image-placeholder"
+                        removeClassOrStyleOnLoad
+                        src={image.src}
+                        alt={image.caption}
+                      />
                       <CarouselCaption
                         captionText={image.caption}
                         captionHeader=""
+                        className="show-on-hover bg-dark"
                       />
                     </CarouselItem>
                   );
@@ -86,7 +112,7 @@ const Gallery = ({ images = [], withSections = false }) => {
                 <a
                   className="left carousel-control carousel-control-prev"
                   data-slide="prev"
-                  href="#pablo"
+                  href="#"
                   onClick={(e) => {
                     e.preventDefault();
                     previous();
@@ -99,7 +125,7 @@ const Gallery = ({ images = [], withSections = false }) => {
                 <a
                   className="right carousel-control carousel-control-next"
                   data-slide="next"
-                  href="#pablo"
+                  href="#"
                   onClick={(e) => {
                     e.preventDefault();
                     next();
