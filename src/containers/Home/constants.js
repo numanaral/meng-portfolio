@@ -25,7 +25,7 @@ const sections = [
     action: {
       type: ACTION_TYPES.MODAL,
       props: {
-        title: "Mini Documentary",
+        title: "Mini Documentary - Art Open-ended: Milton Lim's whitepages",
         body: MiniDocumentary,
       },
     },
