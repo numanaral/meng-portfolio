@@ -1,3 +1,6 @@
+import Communications from "./Communications";
+import Design from "./Design";
+import Reportage from "./Reportage";
 import Wakalet from "./Wakalet";
 
 const tabs = [
@@ -6,16 +9,16 @@ const tabs = [
     content: Wakalet,
   },
   {
-    title: "Reporting",
-    content: "Reporting",
+    title: "Reportage",
+    content: Reportage,
   },
   {
     title: "Communications",
-    content: "Communications",
+    content: Communications,
   },
   {
     title: "Design",
-    content: "Design",
+    content: Design,
   },
 ];
 
