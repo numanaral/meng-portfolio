@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import "assets/css/bootstrap.min.css";
 import "assets/scss/paper-kit.scss";
 import "assets/demo/demo.css";
+import "./index.css";
 
 import Home from "views/Home";
 import Profile from "views/Profile";
@@ -17,15 +18,24 @@ ReactDOM.render(
       <Route path="/" exact render={(props) => <Home {...props} />} />
       <Route
         path="/photojournalism"
+        exact
         render={(props) => <Photojournalism {...props} />}
       />
-      <Route path="/projects" render={(props) => <Projects {...props} />} />
+      <Route
+        path="/projects"
+        exact
+        render={(props) => <Projects {...props} />}
+      />
       {process.env.NODE_ENV !== "production" && (
         <>
-          <Route path="/profile" render={(props) => <Profile {...props} />} />
+          <Route
+            path="/profile"
+            exact
+            render={(props) => <Profile {...props} />}
+          />
         </>
       )}
-      <Redirect to="/" />
+      <Redirect to="/" exact />
     </Switch>
   </BrowserRouter>,
   document.getElementById("root")

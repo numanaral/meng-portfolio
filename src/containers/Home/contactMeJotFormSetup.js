@@ -90,8 +90,6 @@ window.handleIFrameMessage = function (e) {
       "*"
     );
   }
-  console.log({ iframe });
-  //   iframe.querySelector(".formFooter").remove();
 };
 if (window.addEventListener) {
   window.addEventListener("message", handleIFrameMessage, false);

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useHook = (items) => {
+const useHook = () => {
   const [activeTab, setActiveTab] = useState(0);
   const toggle = (tab) => {
     if (activeTab !== tab) {
