@@ -1,5 +1,5 @@
 import React from "react";
-import "./contactMeJotFormSetup.js";
+import "./jotFormSetup.js";
 
 const ContactMeJotForm = () => (
   <>
