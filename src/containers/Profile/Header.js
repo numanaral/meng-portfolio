@@ -42,7 +42,7 @@ function ProfilePageHeader() {
     <>
       <div
         style={{
-          backgroundImage: `url(${require("assets/img/landing-page/landing-page.jpeg")})`,
+          backgroundImage: `url(${process.env.PUBLIC_URL}/images/home/banner.jpeg")`,
         }}
         className="page-header page-header-xs"
         data-parallax={true}
