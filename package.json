@@ -5,6 +5,7 @@
   "dependencies": {
     "classnames": "2.2.6",
     "exif": "^0.6.0",
+    "ismobilejs": "^1.1.1",
     "lqip": "^2.1.0",
     "moment": "2.26.0",
     "node-sass": "4.14.1",

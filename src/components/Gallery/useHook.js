@@ -1,6 +1,12 @@
+import useIsMobile from "hooks/useIsMobile";
 import { useState } from "react";
 
-const useHook = (items) => {
+/**
+ * @param {Array} items
+ * @param {import("react").RefObject<HTMLDivElement>} carouselRef
+ */
+const useHook = (items, carouselRef) => {
+  const isMobile = useIsMobile();
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
   const onExiting = () => {
@@ -22,6 +28,13 @@ const useHook = (items) => {
   const goToIndex = (newIndex) => {
     if (animating) return;
     setActiveIndex(newIndex);
+    /* eslint-disable no-unused-expressions */
+    if (!isMobile) return;
+    carouselRef?.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+    });
+    /* eslint-enable no-unused-expressions */
   };
   return {
     activeIndex,

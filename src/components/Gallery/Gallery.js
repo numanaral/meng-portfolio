@@ -18,6 +18,8 @@ const fileNameToSentenceCase = (s = "") =>
 const fileNameToSentence = (s) => capitalize(fileNameToSentenceCase(s));
 
 const Gallery = ({ images = [], withSections = false }) => {
+  /** @type {React.RefObject<HTMLDivElement>} */
+  const carouselRef = useRef();
   let flattenedImages = images;
   if (withSections) {
     const mergedGroups = Object.values(images).reduce(
@@ -41,7 +43,8 @@ const Gallery = ({ images = [], withSections = false }) => {
     next,
     previous,
     goToIndex,
-  } = useHook(flattenedImages);
+  } = useHook(flattenedImages, carouselRef);
+
   return (
     <>
       <div className="section pt-o p-5" id="carousel">
