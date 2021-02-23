@@ -72,24 +72,26 @@ const generateImageFiles = () => {
     await Promise.all(
       fs.readdirSync(PUBLIC_IMAGE_PATH).map(async (folder) => {
         const folderPath = `${PUBLIC_IMAGE_PATH + folder}/`;
-        const files = fs.readdirSync(folderPath);
-        const capitalizedFolderName = capitalize(folder);
-        base64Images[capitalizedFolderName] = {};
-        await Promise.all(
-          files.map(async (fileName) => {
-            if (/\.(PNG|png|JPE?G|jpe?g|SVG|svg)$/.test(fileName)) {
-              // capital extensions break lqip
-              const src = (folderPath + fileName).toLowerCase();
-              const lqImage = await lqip.base64(src);
-              const caption = await getImageDescription(src, fileName);
-              base64Images[capitalizedFolderName][fileName] = {
-                lqip: lqImage,
-                src: `/images/${folder}/${fileName}`,
-                caption,
-              };
-            }
-          })
-        );
+        if (fs.lstatSync(folderPath).isDirectory()) {
+          const files = fs.readdirSync(folderPath);
+          const capitalizedFolderName = capitalize(folder);
+          base64Images[capitalizedFolderName] = {};
+          await Promise.all(
+            files.map(async (fileName) => {
+              if (/\.(PNG|png|JPE?G|jpe?g|SVG|svg)$/.test(fileName)) {
+                // capital extensions break lqip
+                const src = (folderPath + fileName).toLowerCase();
+                const lqImage = await lqip.base64(src);
+                const caption = await getImageDescription(src, fileName);
+                base64Images[capitalizedFolderName][fileName] = {
+                  lqip: lqImage,
+                  src: `/images/${folder}/${fileName}`,
+                  caption,
+                };
+              }
+            })
+          );
+        }
       })
     );
 
