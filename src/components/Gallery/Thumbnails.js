@@ -8,17 +8,19 @@ const Thumbnails = ({ images, onClick, withSections }) => {
       const section = images[sectionName];
       const img = Object.keys(section).map((fileName) => {
         const index = i++;
+        const { caption, ...imageProps } = section[fileName];
         return (
           <ImageButton
             key={fileName}
-            src={section[fileName]}
             onClick={() => onClick(index)}
+            altText={caption}
+            {...imageProps}
           />
         );
       });
       return (
         <Fragment key={sectionName}>
-          <h3>{sectionName}</h3>
+          <h3 style={{ margin: 0 }}>{sectionName}</h3>
           {img}
         </Fragment>
       );

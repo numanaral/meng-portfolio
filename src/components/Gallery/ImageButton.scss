@@ -1,0 +1,20 @@
+button.image-button {
+  height: 50px;
+  max-width: 80px;
+  width: auto;
+  padding: 0;
+  overflow: hidden;
+  margin: 0 10px 10px 0;
+  border: none;
+  outline: 0;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.image-button-placeholder {
+  height: 50px;
+  width: 75px;
+}

@@ -1,10 +1,18 @@
+import LazyImage from "components/LazyImage";
 import React from "react";
-import "./ImageButton.css";
+import "./ImageButton.scss";
 
-const ImageButton = ({ src, altText, onClick, ...rest }) => {
+const ImageButton = ({ src, lqip, altText, onClick, ...rest }) => {
   return (
     <button className="image-button" onClick={onClick} {...rest}>
-      <img height="100%" src={src} alt={altText} />
+      <LazyImage
+        height="100%"
+        placeholderSrc={lqip}
+        wrapperClassName="image-button-placeholder"
+        removeClassOrStyleOnLoad
+        src={src}
+        alt={altText}
+      />
     </button>
   );
 };
