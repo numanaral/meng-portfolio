@@ -1,8 +1,6 @@
 import React from "react";
 import { Container } from "reactstrap";
 
-// core components
-import Layout from "components/Layout";
 import Header from "./Header";
 import MyWork from "./MyWork";
 import ContactMe from "./ContactMe";
@@ -17,7 +15,7 @@ const Home = () => {
   });
 
   return (
-    <Layout>
+    <>
       <Header />
       <div className="main">
         <div className="section text-center">
@@ -28,7 +26,7 @@ const Home = () => {
           <ContactMe />
         </div>
       </div>
-    </Layout>
+    </>
   );
 };
 
