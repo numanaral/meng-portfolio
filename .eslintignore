@@ -2,7 +2,7 @@ build/
 dist/
 temp/
 node_modules/
-internals/
+# internals/
 server/
 config/
 scripts/
