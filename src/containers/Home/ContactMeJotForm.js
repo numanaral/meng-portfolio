@@ -21,6 +21,8 @@ const ContactMeJotForm = () => (
         minWidth: "100%",
         height: 700,
         border: "none",
+        // Hide ad under the footer
+        marginBottom: -60,
       }}
       scrolling="no"
     />
