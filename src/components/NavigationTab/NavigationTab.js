@@ -1,7 +1,7 @@
 import { FOOTER_HEIGHT } from "components/Footer/constants";
 import { NAVBAR_HEIGHT } from "components/Navbar";
 import useClientRect from "hooks/useClientRect";
-import React, { useRef } from "react";
+import React, { cloneElement, useRef } from "react";
 import Nav from "reactstrap/lib/Nav";
 import TabContent from "reactstrap/lib/TabContent";
 import TabPane from "reactstrap/lib/TabPane";
@@ -18,9 +18,9 @@ const NavigationTab = ({ tabs = [] }) => {
   const tabPaneRef = useRef();
 
   const { navItems, navContents } = tabs.reduce(
-    (acc, { title, content }) => {
+    (acc, { title, content, props = {} }) => {
       acc.navItems.push(title);
-      acc.navContents.push(content);
+      acc.navContents.push({ content, props });
       return acc;
     },
     { navItems: [], navContents: [] }
@@ -54,9 +54,9 @@ const NavigationTab = ({ tabs = [] }) => {
           }px)`,
         }}
       >
-        {navContents.map((content, index) => (
+        {navContents.map(({ content, props }, index) => (
           <TabPane key={index} tabId={index} style={{ height: "100%" }}>
-            {getElementFromElementOrType(content)}
+            {cloneElement(getElementFromElementOrType(content), { ...props })}
           </TabPane>
         ))}
       </TabContent>
