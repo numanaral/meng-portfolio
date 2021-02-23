@@ -1,8 +1,17 @@
 import React from "react";
 import { Row, Container } from "reactstrap";
+import Heart from "./Heart";
 
-const Footerr = () => (
-  <footer className="footer footer-black footer-white">
+const Footer = () => (
+  <footer
+    className="footer bg-dark"
+    style={{
+      zIndex: 99999999,
+      height: 60,
+      display: "flex",
+      alignItems: "center",
+    }}
+  >
     <Container>
       <Row>
         {/* <nav className="footer-nav">
@@ -18,12 +27,11 @@ const Footerr = () => (
               
             </ul>
           </nav> */}
-        <div className="credits ml-auto">
-          <span className="copyright">
-            © {new Date().getFullYear()}, Template by{" "}
-            <a href="https://www.creative-tim.com/"> Creative Tim </a> & site
-            created by <a href="https://numanaral.github.io"> Numan </a> with{" "}
-            <i className="fa fa-heart heart" />
+        <div className="ml-auto">
+          <span className="copyright text-white">
+            Created with <Heart />
+            by{" "}
+            <a href="https://numanaral.github.io/?ref=mengwei.ca">Numan Aral</a>
           </span>
         </div>
       </Row>
@@ -31,4 +39,4 @@ const Footerr = () => (
   </footer>
 );
 
-export default Footerr;
+export default Footer;
