@@ -1,41 +1,22 @@
 import React from "react";
-import { Row, Container } from "reactstrap";
 import Heart from "./Heart";
 
 const Footer = () => (
   <footer
     className="footer bg-dark"
     style={{
-      zIndex: 99999999,
+      zIndex: 9999,
       height: 60,
+      width: "100%",
       display: "flex",
       alignItems: "center",
+      justifyContent: "flex-end",
     }}
   >
-    <Container>
-      <Row>
-        {/* <nav className="footer-nav">
-            <ul>
-              <li>
-                <a
-                  href="https://www.creative-tim.com?ref=pkr-footer"
-                  target="_blank"
-                >
-                  Creative Tim
-                </a>
-              </li>
-              
-            </ul>
-          </nav> */}
-        <div className="ml-auto">
-          <span className="copyright text-white">
-            Created with <Heart />
-            by{" "}
-            <a href="https://numanaral.github.io/?ref=mengwei.ca">Numan Aral</a>
-          </span>
-        </div>
-      </Row>
-    </Container>
+    <span className="copyright text-white mr-3">
+      Created with <Heart />
+      by <a href="https://numanaral.github.io/?ref=mengwei.ca">Numan Aral</a>
+    </span>
   </footer>
 );
 
