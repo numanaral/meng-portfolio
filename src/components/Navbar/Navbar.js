@@ -1,18 +1,11 @@
 import React from "react";
 import classnames from "classnames";
 
-// reactstrap components
-import {
-  Collapse,
-  NavbarBrand,
-  Navbar,
-  NavItem,
-  NavLink,
-  Nav,
-  Container,
-} from "reactstrap";
+import { Collapse, NavbarBrand, Navbar, Nav, Container } from "reactstrap";
 import Link from "components/Link";
 import "./Navbar.scss";
+import NavbarItem from "./NavbarItem";
+import { LINKS } from "./constants";
 
 function ExamplesNavbar({ bgClassName = "navbar-transparent" }) {
   const [isNavbarOpen, setIsNavbarOpen] = React.useState(false);
@@ -81,48 +74,13 @@ function ExamplesNavbar({ bgClassName = "navbar-transparent" }) {
           isOpen={navbarCollapse}
         >
           <Nav navbar>
-            <NavItem>
-              <NavLink
-                to="/photojournalism"
-                tag={Link}
+            {LINKS.map((linkProps) => (
+              <NavbarItem
+                key={linkProps.to}
+                {...linkProps}
                 onClick={closeNavbarWhenUrlIsClicked}
-              >
-                {/* <i className="nc-icon nc-album-2" />  */}
-                Photojournalism
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                to="/projects"
-                tag={Link}
-                onClick={closeNavbarWhenUrlIsClicked}
-              >
-                {/* <i className="nc-icon nc-album-2" />  */}
-                Projects
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                data-placement="bottom"
-                href="https://vimeo.com/user131632503"
-                target="_blank"
-                title="Follow me on Vimeo"
-              >
-                <i className="fa fa-vimeo" />
-                <p className="d-lg-none">Vimeo</p>
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink
-                data-placement="bottom"
-                href="https://www.instagram.com/meng.weiaral/"
-                target="_blank"
-                title="Follow me on Instagram"
-              >
-                <i className="fa fa-instagram" />
-                <p className="d-lg-none">Instagram</p>
-              </NavLink>
-            </NavItem>
+              />
+            ))}
           </Nav>
         </Collapse>
       </Container>
