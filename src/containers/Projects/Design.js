@@ -1,12 +1,6 @@
-import IFrame from "components/IFrame";
 import React from "react";
+import PdfContainer from "./PdfContainer";
 
-const Design = () => (
-  <IFrame
-    title="Backscene magazine April 2020"
-    src="/documents/backscene-magazine-april-2020.pdf"
-    height="100%"
-  />
-);
+const Design = (props) => <PdfContainer {...props} />;
 
 export default Design;
