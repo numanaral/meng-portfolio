@@ -1,12 +1,13 @@
+/* eslint-disable no-shadow */
 /* eslint-disable func-names */
 /* eslint-disable no-var */
 /* eslint-disable vars-on-top */
 /* eslint-disable no-undef */
 /* eslint-disable default-case */
-const ifr = document.getElementById("JotFormIFrame-210533010656241");
+var ifr = document.getElementById("JotFormIFrame-210532357957056");
 if (ifr) {
-  let { src } = ifr;
-  let iframeParams = [];
+  var { src } = ifr;
+  var iframeParams = [];
   if (window.location.href && window.location.href.indexOf("?") > -1) {
     iframeParams = iframeParams.concat(
       window.location.href
@@ -27,7 +28,7 @@ window.handleIFrameMessage = function (e) {
   if (typeof e.data === "object") {
     return;
   }
-  const args = e.data.split(":");
+  var args = e.data.split(":");
   if (args.length > 2) {
     iframe = document.getElementById(`JotFormIFrame-${args[args.length - 1]}`);
   } else {
@@ -62,26 +63,24 @@ window.handleIFrameMessage = function (e) {
       document.body.appendChild(script);
       break;
     case "exitFullscreen":
-      if (document.fullscreenElement) {
-        if (window.document.exitFullscreen) window.document.exitFullscreen();
-        else if (window.document.mozCancelFullScreen)
-          window.document.mozCancelFullScreen();
-        else if (window.document.mozCancelFullscreen)
-          window.document.mozCancelFullScreen();
-        else if (window.document.webkitExitFullscreen)
-          window.document.webkitExitFullscreen();
-        else if (window.document.msExitFullscreen)
-          window.document.msExitFullscreen();
-      }
+      if (window.document.exitFullscreen) window.document.exitFullscreen();
+      else if (window.document.mozCancelFullScreen)
+        window.document.mozCancelFullScreen();
+      else if (window.document.mozCancelFullscreen)
+        window.document.mozCancelFullScreen();
+      else if (window.document.webkitExitFullscreen)
+        window.document.webkitExitFullscreen();
+      else if (window.document.msExitFullscreen)
+        window.document.msExitFullscreen();
       break;
   }
-  const isJotForm = e.origin.indexOf("jotform") > -1;
+  var isJotForm = e.origin.indexOf("jotform") > -1;
   if (
     isJotForm &&
     "contentWindow" in iframe &&
     "postMessage" in iframe.contentWindow
   ) {
-    const urls = {
+    var urls = {
       docurl: encodeURIComponent(document.URL),
       referrer: encodeURIComponent(document.referrer),
     };
