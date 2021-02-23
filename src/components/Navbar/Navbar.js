@@ -15,12 +15,19 @@ import Link from "components/Link";
 import "./Navbar.scss";
 
 function ExamplesNavbar({ bgClassName = "navbar-transparent" }) {
+  const [isNavbarOpen, setIsNavbarOpen] = React.useState(false);
   const [navbarColor, setNavbarColor] = React.useState(bgClassName);
   const [navbarCollapse, setNavbarCollapse] = React.useState(false);
 
   const toggleNavbarCollapse = () => {
+    setIsNavbarOpen((v) => !v);
     setNavbarCollapse(!navbarCollapse);
     document.documentElement.classList.toggle("nav-open");
+  };
+
+  const closeNavbarWhenUrlIsClicked = () => {
+    if (!isNavbarOpen) return;
+    toggleNavbarCollapse();
   };
 
   React.useEffect(() => {
@@ -75,13 +82,21 @@ function ExamplesNavbar({ bgClassName = "navbar-transparent" }) {
         >
           <Nav navbar>
             <NavItem>
-              <NavLink to="/photojournalism" tag={Link}>
+              <NavLink
+                to="/photojournalism"
+                tag={Link}
+                onClick={closeNavbarWhenUrlIsClicked}
+              >
                 {/* <i className="nc-icon nc-album-2" />  */}
                 Photojournalism
               </NavLink>
             </NavItem>
             <NavItem>
-              <NavLink to="/projects" tag={Link}>
+              <NavLink
+                to="/projects"
+                tag={Link}
+                onClick={closeNavbarWhenUrlIsClicked}
+              >
                 {/* <i className="nc-icon nc-album-2" />  */}
                 Projects
               </NavLink>
