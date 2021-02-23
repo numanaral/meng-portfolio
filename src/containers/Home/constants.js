@@ -1,3 +1,4 @@
+import IMAGES from "assets/images.json";
 import MiniDocumentary from "./MiniDocumentary";
 import { ACTION_TYPES } from "./SectionCard";
 
@@ -7,9 +8,7 @@ const sections = [
       title: "Photojournalism",
       subTitle: "",
     },
-    image: {
-      src: require("assets/img/landing-page/landing-page.jpeg"),
-    },
+    image: IMAGES.Home["photojournalism.jpg"],
     action: {
       type: ACTION_TYPES.LINK,
       props: {
@@ -22,9 +21,7 @@ const sections = [
       title: "Mini Documentary",
       subTitle: "",
     },
-    image: {
-      src: require("assets/img/landing-page/landing-page.jpeg"),
-    },
+    image: IMAGES.Home["mini-documentary.jpeg"],
     action: {
       type: ACTION_TYPES.MODAL,
       props: {
@@ -38,9 +35,7 @@ const sections = [
       title: "Projects",
       subTitle: "",
     },
-    image: {
-      src: require("assets/img/landing-page/landing-page.jpeg"),
-    },
+    image: IMAGES.Home["project.jpeg"],
     action: {
       type: ACTION_TYPES.LINK,
       props: {

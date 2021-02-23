@@ -1,0 +1,16 @@
+.my-work.row {
+  justify-content: space-between;
+
+  & > [class*="col-"] {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      height: 95%;
+    }
+
+    .card {
+      height: 100%;
+    }
+  }
+}

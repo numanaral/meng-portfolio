@@ -36,7 +36,7 @@ const MyWork = () => {
   return (
     <>
       {modal}
-      <Row>
+      <Row className="my-work">
         <Col md="4">
           <SectionCard {...section0Props} onClick={() => push(link0)} />
         </Col>

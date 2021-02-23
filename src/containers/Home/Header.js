@@ -1,32 +1,16 @@
-/*!
-
-=========================================================
-* Paper Kit React - v1.2.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/paper-kit-react
-
-* Copyright 2020 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/paper-kit-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
-import React from "react";
-
-// reactstrap components
+import React, { useEffect, createRef } from "react";
 import { Container } from "reactstrap";
+import IMAGES from "assets/images.json";
 
-// core components
+const HOME_BANNER_IMAGE = IMAGES.Home["banner.jpeg"];
+const HOME_IMAGE = process.env.PUBLIC_URL + HOME_BANNER_IMAGE.src;
+const HOME_LQIP = `url(${HOME_BANNER_IMAGE.lqip})`;
 
 function LandingPageHeader() {
-  const pageHeader = React.createRef();
+  /** @type {RefObject<HTMLDivElement>} */
+  const pageHeader = createRef();
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (window.innerWidth < 991) {
       const updateScroll = () => {
         const windowScrollTop = window.pageYOffset / 3;
@@ -39,11 +23,19 @@ function LandingPageHeader() {
     }
   });
 
+  useEffect(() => {
+    const imageLoader = new Image();
+    imageLoader.onload = () => {
+      pageHeader.current.style.backgroundImage = `url(${HOME_IMAGE})`;
+    };
+    imageLoader.src = HOME_IMAGE;
+  }, [pageHeader]);
+
   return (
     <>
       <div
         style={{
-          backgroundImage: `url(${require("assets/img/landing-page/landing-page.jpeg")}`,
+          backgroundImage: HOME_LQIP,
         }}
         className="page-header"
         data-parallax={true}
