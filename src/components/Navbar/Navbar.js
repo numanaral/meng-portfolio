@@ -1,11 +1,12 @@
 import React from "react";
 import classnames from "classnames";
 
-import { Collapse, NavbarBrand, Navbar, Nav, Container } from "reactstrap";
+import { Collapse, Navbar, Nav, Container } from "reactstrap";
 import "./Navbar.scss";
 import NavbarItem from "./NavbarItem";
 import { LINKS } from "./constants";
 import useHook from "./useHook";
+import NavbarBrand from "./NavbarBrand";
 
 function ExamplesNavbar({ bgClassName = "navbar-transparent" }) {
   const {

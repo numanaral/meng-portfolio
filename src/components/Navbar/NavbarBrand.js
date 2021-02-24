@@ -1,14 +1,15 @@
 import React from "react";
 import Link from "components/Link";
+import { NavbarBrand as BsNavbarBrand } from "reactstrap";
 import classnames from "classnames";
 
 const NavbarBrand = ({ navbarCollapse, toggleNavbarCollapse }) => {
   return (
     <div className="navbar-translate">
-      <NavbarBrand data-placement="bottom" to="/" title="Home" tag={Link}>
+      <BsNavbarBrand data-placement="bottom" to="/" title="Home" tag={Link}>
         <i className="fa fa-home" />
         Meng Wei
-      </NavbarBrand>
+      </BsNavbarBrand>
       <button
         aria-expanded={navbarCollapse}
         className={classnames("navbar-toggler navbar-toggler", {
