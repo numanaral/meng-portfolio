@@ -59,11 +59,32 @@
   overflow: auto;
   display: flex;
   justify-content: center;
-  background: #000000;
-}
+  border-radius: 0 !important;
 
+  .carousel,
+  .carousel-inner,
+  .carousel-item,
+  .carousel-image-placeholder {
+    height: 100%;
+  }
+  img {
+    border-radius: 0 !important;
+  }
+}
 .carousel-image-placeholder {
-  height: 500px;
   width: 100%;
-  background-color: transparent;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 300px;
+  @media only screen and (min-width: 768px) {
+    height: 500px;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
 }

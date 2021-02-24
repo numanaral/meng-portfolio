@@ -97,7 +97,11 @@ const Gallery = ({ images = [], withSections = false }) => {
                       <LazyImage
                         placeholderSrc={image.lqip}
                         wrapperClassName="carousel-image-placeholder"
-                        removeClassOrStyleOnLoad
+                        wrapperProps={{
+                          style: {
+                            backgroundImage: `url(${image.lqip})`,
+                          },
+                        }}
                         src={image.src}
                         alt={image.caption}
                       />
