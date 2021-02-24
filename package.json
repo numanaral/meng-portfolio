@@ -30,7 +30,8 @@
     "eslint:fix": "npm run lint --fix",
     "prettier:fix": "prettier --write src/**/*.js",
     "lint:f": "npm run eslint:fix && npm run prettier:fix",
-    "lint:fp": "npm run prettier:fix"
+    "lint:fp": "npm run prettier:fix",
+	"build:img": "node -e \"require('./src/internals/generate-image-files.js')()\""
   },
   "eslintConfig": {
     "extends": "react-app"
