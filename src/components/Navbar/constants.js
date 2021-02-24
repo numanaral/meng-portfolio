@@ -1,7 +1,7 @@
 import React from "react";
 import { LINK_TYPE } from "components/Link";
 
-const NAVBAR_HEIGHT = 80;
+const NAVBAR_HEIGHT = 70;
 
 const LINKS = [
   {

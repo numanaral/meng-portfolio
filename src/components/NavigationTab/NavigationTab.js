@@ -50,7 +50,7 @@ const NavigationTab = ({ tabs = [] }) => {
         ref={tabPaneRef}
         style={{
           height: `calc(100% - ${
-            -4 + NAVBAR_HEIGHT + FOOTER_HEIGHT + navigationRect?.top || 0
+            6 + NAVBAR_HEIGHT + FOOTER_HEIGHT + navigationRect?.top || 0
           }px)`,
         }}
       >
