@@ -1,12 +1,8 @@
 import React from "react";
+import ContactMeJotForm from "./JotForm";
 
 const ContactMe = () => {
-  return (
-    <div>
-      ContactMe
-      <br />
-    </div>
-  );
+  return <ContactMeJotForm />;
 };
 
 export default ContactMe;

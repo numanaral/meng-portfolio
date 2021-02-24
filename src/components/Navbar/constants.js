@@ -15,6 +15,11 @@ const LINKS = [
     type: LINK_TYPE.INTERNAL,
   },
   {
+    label: "Contact Me",
+    to: "/contact-me",
+    type: LINK_TYPE.INTERNAL,
+  },
+  {
     label: <p className="d-lg-none">Vimeo</p>,
     to: "https://vimeo.com/user131632503",
     icon: <i className="fa fa-vimeo" />,

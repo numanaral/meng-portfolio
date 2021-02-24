@@ -11,6 +11,7 @@ import Home from "views/Home";
 import Profile from "views/Profile";
 import Photojournalism from "views/Photojournalism";
 import Projects from "views/Projects";
+import ContactMe from "views/ContactMe";
 
 ReactDOM.render(
   <BrowserRouter>
@@ -25,6 +26,11 @@ ReactDOM.render(
         path="/projects"
         exact
         render={(props) => <Projects {...props} />}
+      />
+      <Route
+        path="/contact-me"
+        exact
+        render={(props) => <ContactMe {...props} />}
       />
       {process.env.NODE_ENV !== "production" && (
         <>
