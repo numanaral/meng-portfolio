@@ -1,20 +1,11 @@
-import LoadingIndicator from "components/LoadingIndicator";
-import React, { useState } from "react";
+import useIframeLoading from "hooks/useIframeLoad";
+import React from "react";
 
 const Wakalet = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const [height, setHeight] = useState("0%");
-  const onLoad = () => {
-    setIsLoading(false);
-    setHeight("100%");
-  };
+  const { loader, height, onLoad } = useIframeLoading("Wakalet");
   return (
     <>
-      {isLoading && (
-        <>
-          <b>Wakalet is loading...</b> <br /> <LoadingIndicator />
-        </>
-      )}
+      {loader}
       <iframe
         title="Wakalet"
         className="wakeletEmbed"
