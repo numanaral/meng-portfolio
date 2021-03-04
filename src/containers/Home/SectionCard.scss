@@ -14,3 +14,21 @@
     }
   }
 }
+
+.card-img-top {
+  @media screen and (min-width: 576) {
+    min-height: 320px;
+  }
+
+  @media screen and (min-width: 768px) {
+    min-height: 130px;
+  }
+
+  @media screen and (min-width: 992px) {
+    min-height: 180px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    min-height: 220px;
+  }
+}
