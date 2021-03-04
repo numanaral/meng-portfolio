@@ -2,7 +2,7 @@ import useIframeLoading from "hooks/useIframeLoad";
 import React from "react";
 
 const Wakalet = () => {
-  const { loader, height, onLoad } = useIframeLoading("Wakalet");
+  const { loader, height, onLoad } = useIframeLoading("Wakalet", "98%");
   return (
     <>
       {loader}
