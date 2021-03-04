@@ -1,13 +1,8 @@
 import Communications from "./Communications";
-import Design from "./Design";
 import Reportage from "./Reportage";
 import Wakalet from "./Wakalet";
 
 const tabs = [
-  {
-    title: "Social Media Roundup",
-    content: Wakalet,
-  },
   {
     title: "Reportage",
     content: Reportage,
@@ -17,8 +12,16 @@ const tabs = [
           title: "Backscene magazine April 2020",
           fileName: "backscene-magazine-april-2020",
         },
+        {
+          title: "How did Uyghur conflict escalated in China",
+          fileName: "how-did-uyghur-conflict-escalated-in-china",
+        },
       ],
     },
+  },
+  {
+    title: "Social Media Roundup",
+    content: Wakalet,
   },
   {
     title: "Communications",
@@ -32,18 +35,6 @@ const tabs = [
         {
           title: "Backgrounder media kit",
           fileName: "backgrounder-media-kit",
-        },
-      ],
-    },
-  },
-  {
-    title: "Design",
-    content: Design,
-    props: {
-      documents: [
-        {
-          title: "How did Uyghur conflict escalated in China",
-          fileName: "how-did-uyghur-conflict-escalated-in-china",
         },
       ],
     },
