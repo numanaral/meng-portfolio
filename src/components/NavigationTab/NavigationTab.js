@@ -55,7 +55,11 @@ const NavigationTab = ({ tabs = [] }) => {
         }}
       >
         {navContents.map(({ content, props }, index) => (
-          <TabPane key={index} tabId={index} style={{ height: "100%" }}>
+          <TabPane
+            key={index}
+            tabId={index}
+            style={{ height: "100%", overflow: "auto" }}
+          >
             {cloneElement(getElementFromElementOrType(content), { ...props })}
           </TabPane>
         ))}
