@@ -1,0 +1,53 @@
+.image-link-button {
+  transition: transform 0.3s ease;
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  &.pdf {
+    img {
+      padding: 10px 5px;
+      border: 1px solid #000;
+      //   box-shadow: 0 0 3px #000;
+      border-radius: 4px;
+    }
+    h5 {
+      padding-left: 15px;
+    }
+
+    @media screen and (min-width: 768px) {
+      img {
+        width: auto;
+        height: 150px;
+        min-width: 125px;
+        max-width: 225px;
+      }
+      h5 {
+        padding-left: 0;
+      }
+    }
+    &:hover {
+      transform: scale(1.06);
+    }
+  }
+
+  &.shorthand {
+    @media screen and (min-width: 768px) {
+      display: flex;
+
+      img {
+        width: auto;
+        height: 150px;
+        max-width: 225px;
+      }
+      h5 {
+        padding-left: 15px;
+      }
+    }
+    &:hover {
+      transform: scale(1.02);
+    }
+  }
+}
